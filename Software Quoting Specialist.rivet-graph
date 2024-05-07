@@ -1,0 +1,96 @@
+version: 4
+data:
+  metadata:
+    description: ""
+    id: zfi8faG1px2I_x-jgZ6Mf
+    name: Software Quoting Specialist
+  nodes:
+    '[7HCSoLnp2gOH16fexiB10]:graphOutput "Graph Output"':
+      data:
+        dataType: string
+        id: output
+      visualData: 2342.0693536655267/196.86561086153324/330/32//
+    '[CweQWm_PMuvu1VN_fIzfP]:graphInput "Graph Input"':
+      data:
+        dataType: string
+        id: input
+        useDefaultValueInput: false
+      outgoingConnections:
+        - data->"Raise Event" WUy0II7t-_SUcNbOhjj9F/data
+      visualData: 98.78412671691196/631.7388202416001/330/31//
+    '[OHsm-jGHGtvOhayuxUOSY]:extractJson "Extract JSON"':
+      outgoingConnections:
+        - output->"Graph Output" 7HCSoLnp2gOH16fexiB10/value
+      visualData: 1955/220/280/8//
+    '[WUy0II7t-_SUcNbOhjj9F]:raiseEvent "Raise Event"':
+      data:
+        eventName: log
+        useEventNameInput: false
+      outgoingConnections:
+        - result->"Chat" WyGrXV1tbvN1In31ZM6c-/prompt
+      visualData: 576.8950307783722/625.7374281404102/180/30//
+    '[WyGrXV1tbvN1In31ZM6c-]:chat "Chat"':
+      data:
+        cache: false
+        enableFunctionUse: false
+        headers: []
+        maxTokens: 1024
+        model: gpt-3.5-turbo
+        parallelFunctionCalling: true
+        stop: ""
+        temperature: 0.5
+        top_p: 1
+        useAsGraphPartialOutput: true
+        useFrequencyPenaltyInput: false
+        useMaxTokensInput: false
+        useModelInput: false
+        usePresencePenaltyInput: false
+        useStop: false
+        useStopInput: false
+        useTemperatureInput: false
+        useTopP: false
+        useTopPInput: false
+        useUseTopPInput: false
+        useUserInput: false
+      outgoingConnections:
+        - response->"Extract JSON" OHsm-jGHGtvOhayuxUOSY/input
+      visualData: 1008.9990719325401/100.99814386508017/717/26//
+    '[cFtfiNGFxJRqKbarjhbzz]:text "Text"':
+      data:
+        text: >-
+          In base alla richiesta sotto, divila in task più dettagliati
+          possibili. Per ogni task scrivi il livello di seniority richiesta per
+          farlo (junior, middle, senior).
+
+
+          Se il livello è junior il task vale 300 euro, se è middle 600, se è senior 1200.
+
+
+          Nel total deve darmi la somma del prezzo di tutti  i task + 30%.
+
+
+          Voglio la risposta in formato json e questo è il template:
+
+
+          {
+
+          "tasks":[
+
+          {
+
+          "name":"",
+
+          "level":""
+
+          "price":""
+
+          }
+
+          ],
+
+          "total":""
+
+          }
+      outgoingConnections:
+        - output->"Chat" WyGrXV1tbvN1In31ZM6c-/systemPrompt
+      visualData: 479/123/330/4//

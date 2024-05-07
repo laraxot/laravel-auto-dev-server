@@ -5,6 +5,220 @@ data:
       testSuites: []
       version: 1
   graphs:
+    4BeNCMEpq7iW3y-dESjJn:
+      metadata:
+        description: ""
+        id: 4BeNCMEpq7iW3y-dESjJn
+        name: Filament Fabricator Block Generator
+      nodes:
+        '[C8AFSI9hPZ4PCEUS-CwAZ]:extractJson "Extract JSON"':
+          outgoingConnections:
+            - output->"Destructure" E_quib9m9cQkwq_Tp9kL4/object
+          visualData: 1527.6509717611966/569.9863670135715/280/74//
+        '[E_quib9m9cQkwq_Tp9kL4]:destructure "Destructure"':
+          data:
+            paths:
+              - $.files
+          outgoingConnections:
+            - match_0->"Raise Event" dK1TFOJtZJStlZKngdnlb/data
+          visualData: 1916.8585190678496/570.6467454667936/280/74//
+        '[UnfRkfAEeT3s9na1BJ9i9]:externalCall "External Call"':
+          data:
+            functionName: getHtmlPage
+            useErrorOutput: false
+            useFunctionNameInput: false
+          outgoingConnections:
+            - result->"Chat" gN5T1QMy6Ziklf1wiJxM3/prompt
+          visualData: 667.7880496590421/699.1146022183858/180/76//
+        '[dK1TFOJtZJStlZKngdnlb]:raiseEvent "Raise Event"':
+          data:
+            eventName: setFile
+            useEventNameInput: false
+          visualData: 2277.266876199334/552.7637626080402/180/75//
+        '[gN5T1QMy6Ziklf1wiJxM3]:chat "Chat"':
+          data:
+            cache: false
+            enableFunctionUse: false
+            headers: []
+            maxTokens: 4096
+            model: gpt-4
+            parallelFunctionCalling: true
+            stop: ""
+            temperature: 0.7
+            top_p: 1
+            useAsGraphPartialOutput: true
+            useFrequencyPenaltyInput: false
+            useMaxTokensInput: false
+            useModelInput: false
+            usePresencePenaltyInput: false
+            useStop: false
+            useStopInput: false
+            useTemperatureInput: false
+            useTopP: false
+            useTopPInput: false
+            useUseTopPInput: false
+            useUserInput: false
+          outgoingConnections:
+            - response->"Extract JSON" C8AFSI9hPZ4PCEUS-CwAZ/input
+          visualData: 1180/518/230/4//
+        '[siGJfCrURhduXBgM-W_HP]:text "Text"':
+          data:
+            text: >-
+              Ora ti passo una view e devi restituire il componente di Laravel
+              Filament Fabricator, incluso di logica e view.
+
+
+              Mi devi rispondere SOLO in formato json con le "path" che saranno dentro app/Filament/Fabricator/PageBlocks per la logica e resources/views/components/filament-fabricator/page-blocks per le views.
+
+
+              Oltre alle path devi darmi i "content" dei files. Tutte le path e content saranno dentro l'indice "files".
+
+
+              Ti mando un esempio di componente di Filament Fabricator:
+
+
+              <?php
+
+
+              namespace App\Filament\Fabricator\PageBlocks;
+
+
+              use Filament\Forms\Components\TextInput;
+
+              use Filament\Forms\Components\Builder\Block;
+
+              use Z3d0X\FilamentFabricator\PageBlocks\PageBlock;
+
+
+              class IntroLogo extends PageBlock
+
+              {
+                  public static function getBlockSchema(): Block
+                  {
+                      return Block::make('intro-logo')
+                          ->schema([
+                              TextInput::make('logo_url'),
+                          ]);
+                  }
+
+                  public static function mutateData(array $data): array
+                  {
+                      $data['logo_url'] = url('images/'.$data['logo_url']);
+
+                      return $data;
+                  }
+              }
+
+
+
+              @aware(['page'])
+                  <div class="bg-black w-full h-full animate-fade fixed z-10 flex items-center justify-center">
+                      <img class="h-1/2 w-auto" src="{{ $logoUrl }}" />
+                  </div>
+
+                  
+
+              Note importanti:
+
+              - se nella parte logica ad esempio abbiamo TextInput::make('logo_url'), la variabile corrispondente nella view è $logoUrl, e questo vale come pattern per qualsiasi variabile. Lo stesso vale per $data['logo_url'] in mutateData che corrisponde sempre a $logoUrl nella view
+          outgoingConnections:
+            - output->"Chat" gN5T1QMy6Ziklf1wiJxM3/systemPrompt
+          visualData: 656/286/330/2//
+    LdPE_13jFn7i-Z2FMMpQT:
+      metadata:
+        description: ""
+        id: LdPE_13jFn7i-Z2FMMpQT
+        name: Software Quoting Specialist
+      nodes:
+        '[-wWmbWp6yGhZA41GEbru5]:text "Text"':
+          data:
+            text: >-
+              In base alla richiesta sotto, divila in task più dettagliati
+              possibili. Per ogni task scrivi il livello di seniority richiesta
+              per farlo (junior, middle, senior).
+
+
+              Se il livello è junior il task vale 300 euro, se è middle 600, se è senior 1200.
+
+
+              Nel total deve darmi la somma del prezzo di tutti  i task + 30%.
+
+
+              Voglio la risposta in formato json e questo è il template:
+
+
+              {
+
+              "tasks":[
+
+              {
+
+              "name":"",
+
+              "level":""
+
+              "price":""
+
+              }
+
+              ],
+
+              "total":""
+
+              }
+          outgoingConnections:
+            - output->"Chat" TsgGJtETcZ-hXY2JFOy-T/systemPrompt
+          visualData: 479/123/330/4//
+        '[B5n559aCte-jTtlSbpLXV]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: output
+          outgoingConnections:
+            - valueOutput->"Raise Event" IJ1xQmK4DN5oSUIFTtmjz/data
+          visualData: 2342.0693536655267/196.86561086153324/330/32//
+        '[IJ1xQmK4DN5oSUIFTtmjz]:raiseEvent "Raise Event"':
+          data:
+            eventName: setFile
+            useEventNameInput: false
+          visualData: 2759.1767723792873/195.96838591923472/180/33//
+        '[QWSRXbqz1D0Ubc2F86F8I]:extractJson "Extract JSON"':
+          outgoingConnections:
+            - output->"Graph Output" B5n559aCte-jTtlSbpLXV/value
+          visualData: 1955/220/280/8//
+        '[TsgGJtETcZ-hXY2JFOy-T]:chat "Chat"':
+          data:
+            cache: false
+            enableFunctionUse: false
+            headers: []
+            maxTokens: 1024
+            model: gpt-3.5-turbo
+            parallelFunctionCalling: true
+            stop: ""
+            temperature: 0.5
+            top_p: 1
+            useAsGraphPartialOutput: true
+            useFrequencyPenaltyInput: false
+            useMaxTokensInput: false
+            useModelInput: false
+            usePresencePenaltyInput: false
+            useStop: false
+            useStopInput: false
+            useTemperatureInput: false
+            useTopP: false
+            useTopPInput: false
+            useUseTopPInput: false
+            useUserInput: false
+          outgoingConnections:
+            - response->"Extract JSON" QWSRXbqz1D0Ubc2F86F8I/input
+          visualData: 1008.9990719325401/100.99814386508017/717/26//
+        '[crsU2nUwZ4VGxkLl1_Zxh]:externalCall "External Call"':
+          data:
+            functionName: getProject
+            useErrorOutput: false
+            useFunctionNameInput: false
+          outgoingConnections:
+            - result->"Chat" TsgGJtETcZ-hXY2JFOy-T/prompt
+          visualData: 623.8586395829034/497.48405568276644/180/35//
     vgFWn038ftITx6kGbex7d:
       metadata:
         description: ""
@@ -48,26 +262,6 @@ data:
           outgoingConnections:
             - output->"Assemble Prompt" Opl20uvVcT7gdCM2dAow6/message2
           visualData: 106.64802594752817/446.56234636103113/205/68//
-        '[KOPwoXIpDzOIugINKSh4R]:chatAnthropic "Chat (Anthropic)"':
-          data:
-            cache: false
-            enableToolUse: false
-            maxTokens: 4096
-            model: claude-3-haiku-20240307
-            stop: ""
-            temperature: 0.7
-            top_p: 1
-            useAsGraphPartialOutput: true
-            useMaxTokensInput: false
-            useModelInput: false
-            useStop: false
-            useStopInput: false
-            useTemperatureInput: false
-            useTopKInput: false
-            useTopP: false
-            useTopPInput: false
-            useUseTopPInput: false
-          visualData: 980.5901521712301/558.2894458026785/305/132//
         '[MuiiQ0NEuSzExXQ4leeLn]:extractJson "Extract JSON"':
           outgoingConnections:
             - output->"Destructure" RacMetN8cTN5tqGM5Mr22/object
