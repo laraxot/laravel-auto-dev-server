@@ -2,10 +2,10 @@
   "name": "rivetlaravelautosrdev",
   "version": "1.0.0",
   "description": "Automate Laravel development with AI-driven code generation and PHPDoc support. ",
-  "main": "index.ts",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodejs index.js",
+    "dev": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
