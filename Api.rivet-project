@@ -133,39 +133,39 @@ data:
         '[-wWmbWp6yGhZA41GEbru5]:text "Text"':
           data:
             text: >-
-              In base alla richiesta sotto, divila in task più dettagliati
-              possibili. Per ogni task scrivi il livello di seniority richiesta
-              per farlo (junior, middle, senior).
+              Task: Break down the software development project into highly
+              specific, independent tasks. Specify the required skill level for
+              each task (junior, middle, senior) with corresponding compensation
+              (300, 600, 1200 euros respectively). Calculate the total cost of
+              all tasks, including a 30% contingency. Provide the breakdown in
+              JSON format.
 
 
-              Se il livello è junior il task vale 300 euro, se è middle 600, se è senior 1200.
+              Context: You are managing a software development project aimed at creating a digital solution, ranging from websites to complex applications. The environment is agile, and tasks are distributed among developers of varying experience levels.
 
 
-              Nel total deve darmi la somma del prezzo di tutti  i task + 30%.
+              Persona: You are a project manager with extensive experience in agile project management and software development, adept at detailed task planning and budget allocation.
 
 
-              Voglio la risposta in formato json e questo è il template:
+              Format: Use the following JSON template to present the breakdown and total cost:
+
+
+              json
 
 
               {
-
-              "tasks":[
-
-              {
-
-              "name":"",
-
-              "level":""
-
-              "price":""
-
+                "tasks": [
+                  {
+                    "name": "Task Name",
+                    "level": "Skill Level",
+                    "price": "Task Price"
+                  }
+                ],
+                "total": "Total Cost"
               }
 
-              ],
 
-              "total":""
-
-              }
+              Tone: Maintain a professional, clear, and precise tone, suitable for a technical and business-oriented audience.
           outgoingConnections:
             - output->"Chat" TsgGJtETcZ-hXY2JFOy-T/systemPrompt
           visualData: 479/123/330/4//

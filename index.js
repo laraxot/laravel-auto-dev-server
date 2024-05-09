@@ -70,7 +70,7 @@ async function taskGenerator(res, data) {
     },
     onUserEvent: {
       myEvent(data) {
-        console.log(data);
+        //console.log(data);
       },
       setFile(data) {
         res.send(data);
@@ -86,13 +86,13 @@ async function filamentFabricatorBlockMaker(res, data) {
     graph: 'Filament Fabricator Block Generator',
     externalFunctions: {
       async getHtmlPage() {
-        console.log(data);
+        //console.log(data);
         return data.html
       }
     },
     onUserEvent: {
       setFile(data) {
-        console.log(data);
+        //console.log(data);
         res.send(data);
       },
     },
@@ -106,13 +106,13 @@ async function aiProject(res, data) {
     graph: 'Software Quoting Specialist',
     externalFunctions: {
       async getProject() {
-        console.log(data);
+        //console.log(data);
         return data.html
       }
     },
     onUserEvent: {
       setFile(data) {
-        console.log(data);
+        //console.log(data);
         res.send(data);
       },
     },
