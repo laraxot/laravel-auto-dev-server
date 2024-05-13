@@ -116,6 +116,7 @@ data:
                       <img class="h-1/2 w-auto" src="{{ $logoUrl }}" />
                   </div>
 
+
                   
 
               Note importanti:
@@ -237,6 +238,14 @@ data:
           outgoingConnections:
             - output->"If/Else" 7NEYgCsdVI8-lIPeXdSS8/if
           visualData: -226.27322753039533/1086.1123667484992/190/76//
+        '[4qKAOcj2qvcKzOxnKEgP3]:graphInput "Graph Input"':
+          data:
+            dataType: boolean
+            id: test
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Compare" l_LTyf_6N1TFxDrGk0vSd/b
+          visualData: -1434.0680479256362/571.1693131345053/330/149//
         '[7NEYgCsdVI8-lIPeXdSS8]:ifElse "If/Else"':
           data:
             unconnectedControlFlowExcluded: true
@@ -249,19 +258,17 @@ data:
           outgoingConnections:
             - output->"If/Else" 7NEYgCsdVI8-lIPeXdSS8/false
           visualData: -297.6636590713827/1498.8066876643645/330/76//
-        '[Fl3ER640jRbROn9r7SMJZ]:raiseEvent "Raise Event"':
-          data:
-            eventName: myEvent
-            useEventNameInput: false
-          outgoingConnections:
-            - result->"Compare" l_LTyf_6N1TFxDrGk0vSd/b
-          visualData: -1357.9118309307391/1003.4542388349015/180/113//
         '[IdiK75BtiwGuXceSiZkoY]:ifElse "If/Else"':
           data:
             unconnectedControlFlowExcluded: true
           outgoingConnections:
             - output->"Assemble Prompt" Opl20uvVcT7gdCM2dAow6/message2
           visualData: 106.64802594752817/446.56234636103113/205/68//
+        '[LgsHyYGvyAjFPH7cObcXW]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: output
+          visualData: 2158.055797936794/309.30094078993324/330/147//
         '[MuiiQ0NEuSzExXQ4leeLn]:extractJson "Extract JSON"':
           outgoingConnections:
             - output->"Destructure" RacMetN8cTN5tqGM5Mr22/object
@@ -275,7 +282,7 @@ data:
             paths:
               - $.files
           outgoingConnections:
-            - match_0->"Raise Event" gfQtulwrepC8DDDJ1ZzVX/data
+            - match_0->"Graph Output" LgsHyYGvyAjFPH7cObcXW/value
           visualData: 1771.2075473066527/349.66037845322217/280/70//
         '[SlVhWfId7lgopLCH-BhW6]:text "Text"':
           data:
@@ -309,11 +316,6 @@ data:
           outgoingConnections:
             - response->"Extract JSON" MuiiQ0NEuSzExXQ4leeLn/input
           visualData: 1000/291/230/130//
-        '[XD6JPpx51t8VhoBWgmJHT]:raiseEvent "Raise Event"':
-          data:
-            eventName: myEvent
-            useEventNameInput: false
-          visualData: -1356.2912240571554/830.0493033614364/180/115//
         '[_OoYqDV5goDFU1EkmkqHo]:text "Text"':
           data:
             prompt: ""
@@ -328,26 +330,14 @@ data:
           outgoingConnections:
             - output->"If/Else" 7NEYgCsdVI8-lIPeXdSS8/true
           visualData: -297.27322753039533/1329.1123667484992/330/88//
-        '[gfQtulwrepC8DDDJ1ZzVX]:raiseEvent "Raise Event"':
+        '[e3Vse_E_ZnpjpySsSZHsy]:graphInput "Graph Input"':
           data:
-            eventName: setFile
-            useEventNameInput: false
-          visualData: 2175.011153481916/321.1787450561277/180/122//
-        '[jLRWlpHXAcXNxRg6Qw21-]:externalCall "External Call"':
-          data:
-            functionName: getFilament
-            useErrorOutput: false
-            useFunctionNameInput: false
+            dataType: boolean
+            id: filament
+            useDefaultValueInput: false
           outgoingConnections:
-            - result->"Raise Event" lCgBoY-NbJn5Cvft2iyXW/data
-          visualData: -1714.445343119172/1188.203422423453/180/114//
-        '[lCgBoY-NbJn5Cvft2iyXW]:raiseEvent "Raise Event"':
-          data:
-            eventName: myEvent
-            useEventNameInput: false
-          outgoingConnections:
-            - result->"Compare" 4MSVbnPeOri3V_MyFvaax/b
-          visualData: -1366.0148652986582/1183.3416018027017/180/114//
+            - data->"Compare" 4MSVbnPeOri3V_MyFvaax/b
+          visualData: -1439.937665857484/784.6298093712319/330/149//
         '[l_LTyf_6N1TFxDrGk0vSd]:compare "Compare"':
           data:
             comparisonFunction: ==
@@ -399,6 +389,14 @@ data:
           outgoingConnections:
             - output->"Assemble Prompt" Opl20uvVcT7gdCM2dAow6/message1
           visualData: 478.52108189690887/-29.876058069026648/330/69//
+        '[vGmcQEn_d2KAWIsm237K_]:graphInput "Graph Input"':
+          data:
+            dataType: string
+            id: task
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Chat" TuqvsgjGbunPPYDdyGfKH/prompt
+          visualData: -1438.1517709709892/359.55362718309294/330/149//
         '[w7Iep6deCne6BVUv698KM]:text "Text"':
           data:
             text: ""
@@ -411,23 +409,6 @@ data:
           outgoingConnections:
             - output->"If/Else" IdiK75BtiwGuXceSiZkoY/true
           visualData: -266.0720080741261/607.3859721079623/330/80//
-        '[y0WbnfX5JrGEyM16wg8PN]:externalCall "External Call"':
-          data:
-            functionName: getTest
-            useErrorOutput: false
-            useFunctionNameInput: false
-          outgoingConnections:
-            - result->"Raise Event" Fl3ER640jRbROn9r7SMJZ/data
-          visualData: -1706.3423087512533/1008.316059455653/180/113//
-        '[ytcjTskuATo28XiAowpSv]:externalCall "External Call"':
-          data:
-            functionName: getTask
-            useErrorOutput: false
-            useFunctionNameInput: false
-          outgoingConnections:
-            - result->"Chat" TuqvsgjGbunPPYDdyGfKH/prompt
-            - result->"Raise Event" XD6JPpx51t8VhoBWgmJHT/data
-          visualData: -1678.7919919003289/831.6699102350203/180/112//
   metadata:
     description: ""
     id: whprw0emIvo1kQfMNNEW3

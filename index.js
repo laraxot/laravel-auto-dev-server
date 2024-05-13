@@ -55,30 +55,14 @@ app.post('/project-quote', async (req, res) => {
 app.listen(port, () => console.log(`Listening on port ${port}!`));
 
 async function taskGenerator(res, data) {
-  await Rivet.runGraphInFile('./Api.rivet-project', {
+  const response = await Rivet.runGraphInFile('./Api.rivet-project', {
     graph: 'Flex Code Generator',
-    externalFunctions: {
-      async getTask() {
-        return data.task
-      },
-      async getTest() {
-        return data.test
-      },
-      async getFilament() {
-        return data.filament
-      }
-    },
-    onUserEvent: {
-      myEvent(data) {
-        //console.log(data);
-      },
-      setFile(data) {
-        res.send(data);
-      },
-    },
+    inputs: data,
     openAiKey: process.env.OPEN_API_KEY
-
   });
+
+  //console.log(response)
+  res.send(response.output);
 }
 
 async function filamentFabricatorBlockMaker(res, data) {
